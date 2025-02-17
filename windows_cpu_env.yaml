@@ -1,0 +1,214 @@
+name: anything
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - _libgcc_mutex
+  - _openmp_mutex
+  - ca-certificates
+  # - ld_impl_linux-64
+  - libffi
+  # - libgcc-ng
+  - libgomp
+  # - libstdcxx-ng
+  # - ncurses
+  - openssl
+  # - readline
+  - sqlite
+  - wheel
+  # - xz
+  # - zlib
+  - pip:
+      - absl-py
+      - accelerate
+      - aiohttp
+      - aiosignal
+      - altair
+      - anytree
+      - appdirs
+      - astunparse
+      - async-timeout
+      - attrs
+      # - backports-zoneinfo
+      - beautifulsoup4
+      - bert-score
+      - blinker
+      - bpemb
+      - brotlipy
+      - cachetools
+      - cchardet
+      - certifi
+      - cffi
+      - chardet
+      - charset-normalizer
+      - click
+      - cloudpickle
+      - cmake
+      - colorama
+      - conllu
+      - contourpy
+      - cryptography
+      - cycler
+      - datasets
+      - decorator
+      - deprecated
+      - dill
+      - docopt
+      - editdistance
+      - entrypoints
+      - faiss-cpu
+      # - faiss-gpu
+      - filelock
+      - flair
+      - flatbuffers
+      - flit-core
+      - fonttools
+      - frozenlist
+      - fsspec
+      - ftfy
+      - future
+      - gast
+      - gdown
+      - gensim
+      - gitdb
+      - gitpython
+      - google-auth
+      - google-auth-oauthlib
+      - google-pasta
+      - grpcio
+      - h5py
+      - huggingface-hub
+      - hyperopt
+      - idna
+      - importlib-metadata
+      - importlib-resources
+      - janome
+      - jieba
+      - jinja2
+      - joblib
+      - jsonschema
+      - keras
+      - keras-preprocessing
+      - keyboard
+      - kiwisolver
+      - konoha
+      - langdetect
+      - language-tool-python
+      - lemminflect
+      - lit
+      - lru-dict
+      - lxml
+      - markdown
+      - markdown-it-py
+      - markupsafe
+      - matplotlib
+      - mdurl
+      - more-itertools
+      - mpld3
+      - mpmath
+      - multidict
+      - multiprocess
+      - networkx
+      - nltk
+      - num2words
+      - numpy
+      # - nvidia-cublas-cu11
+      # - nvidia-cuda-cupti-cu11
+      # - nvidia-cuda-nvrtc-cu11
+      # - nvidia-cuda-runtime-cu11
+      # - nvidia-cudnn-cu11
+      # - nvidia-cufft-cu11
+      # - nvidia-curand-cu11
+      # - nvidia-cusolver-cu11
+      # - nvidia-cusparse-cu11
+      # - nvidia-nccl-cu11
+      # - nvidia-nvtx-cu11
+      - oauthlib
+      - olefile
+      - openhownet
+      - opt-einsum
+      - overrides
+      - packaging
+      - pandas
+      - pdfminer-six
+      - pillow
+      - pinyin
+      - pip
+      - pkgutil-resolve-name
+      - pooch
+      - pptree
+      - protobuf
+      - psutil
+      - py4j
+      - pyarrow
+      - pyasn1-modules
+      # - pycld2
+      - pydeck
+      - pygments
+      - pyjwt
+      - pympler
+      - pymupdf
+      - pyopenssl
+      - pyparsing
+      - pypdf
+      - pyrsistent
+      - pysocks
+      - python-dateutil
+      - python-docx
+      - python-pptx
+      - pytz
+      - pytz-deprecation-shim
+      - pyyaml
+      - rank-bm25
+      - regex
+      - requests
+      - requests-oauthlib
+      - responses
+      - rich
+      - rsa
+      - scikit-learn
+      - scipy
+      - segtok
+      - sentence-transformers
+      - sentencepiece
+      - setuptools
+      - six
+      - smart-open
+      - soupsieve
+      - sqlitedict
+      - streamlit
+      - sympy
+      - tabulate
+      - tensorboard
+      - tensorboard-data-server
+      - tensorboard-plugin-wit
+      - termcolor
+      - terminaltables
+      - threadpoolctl
+      - tk
+      - tokenizers
+      - toml
+      - toolz
+      - torch
+      - torchvision
+      - tornado
+      - tqdm
+      - transformers
+      # - triton
+      - typing-extensions
+      - tzdata
+      - tzlocal
+      - urllib3
+      - validators
+      - watchdog
+      - wcwidth
+      - werkzeug
+      - wikipedia-api
+      - word2number
+      - wrapt
+      - xlsxwriter
+      - xxhash
+      - yarl
+      - zipp
+# prefix: /miniconda/envs/anything

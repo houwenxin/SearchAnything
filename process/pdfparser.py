@@ -6,6 +6,8 @@ import os
 import re
 import fitz
 from nltk.tokenize import sent_tokenize
+import nltk
+nltk.download('punkt_tab')
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
