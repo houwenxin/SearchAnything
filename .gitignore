@@ -3,6 +3,7 @@ images/
 files/
 data/
 .DS_Store
+notion_auth.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

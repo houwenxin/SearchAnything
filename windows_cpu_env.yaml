@@ -17,7 +17,6 @@ dependencies:
   # - readline
   - sqlite
   - wheel
-  - faiss-gpu
   # - xz
   # - zlib
   - pip:

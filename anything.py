@@ -31,6 +31,7 @@ class Anything(object):
               Type 'insert' to parse file.\n\
               Type 'insert_all' to search for ALL available files on your local drives and then parse.\n\
                    -Press 'q' to quit searching. \n\
+              Type 'insert_notion' to parse files from Notion.\n\
               Type 'search' to search file.\n\
               Type 'delete' to delete file.")
         
@@ -71,6 +72,9 @@ class Anything(object):
             elif input_text == "insert_all":
                 self.insert_all()
 
+            elif input_text == "insert_notion":
+                self.insert_notion()
+                
             elif input_text == "delete":
                 path = input("File path: ")
                 self.delete(path)
@@ -99,6 +103,49 @@ class Anything(object):
                 data_list = process_file(file_path, suffix, self.models[data_type])
                 db.insert_data(data_list, data_type)
 
+    def insert_notion(self):
+        try:
+            from notion_client import Client
+        except ImportError:
+            print("Notion client is not installed. Please install it using 'pip install notion_client' and restart the script.")
+            exit(1)
+        import requests
+        from utils import parse_data_type
+
+        NOTION_CLIENT_AUTH = open("notion_auth.txt", "r").read().strip()
+        NOTION_DATABASE_ID = input("Notion DataBase ID: ")
+
+        # 初始化Notion客户端
+        notion = Client(auth=NOTION_CLIENT_AUTH)
+        
+        # 获取页面
+        entries = notion.databases.query(
+            **{
+                "database_id": NOTION_DATABASE_ID,
+            }
+        )["results"]
+        for entry in entries:
+            for prop_name, prop_value in entry["properties"].items():
+                if prop_value["type"] == "files" and len(prop_value["files"]) > 0:
+                    name = prop_value["files"][0]["name"]
+                    url = prop_value["files"][0]["file"]["url"]
+                    response = requests.get(url)
+                    suffix = name.split('.')[-1]
+                    
+                    if response.status_code != 200:
+                        raise ValueError(f"无法获取文件：《{name}》")
+                    # Save to a temp path
+                    temp_path = os.path.join(DATA_DIR, "notion_data", NOTION_DATABASE_ID)
+                    os.makedirs(temp_path, exist_ok=True)
+                    temp_path = os.path.join(temp_path, name)
+                    with open(temp_path, "wb") as f:
+                        f.write(response.content)
+                    data_type = parse_data_type(suffix)
+                    print("Processing file: ", temp_path, suffix, self.models[data_type])
+                    data_list = process_file(temp_path, suffix, self.models[data_type])
+                    db = self.dbs[data_type]
+                    db.insert_data(data_list, data_type)
+        
     def insert_all(self):
         search4files = Search4files()
         files_walking = False
