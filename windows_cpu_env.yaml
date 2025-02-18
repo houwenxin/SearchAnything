@@ -76,6 +76,7 @@ dependencies:
       - google-auth
       - google-auth-oauthlib
       - google-pasta
+      - gradio
       - grpcio
       - h5py
       - huggingface-hub
